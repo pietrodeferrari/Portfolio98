@@ -97,7 +97,7 @@ Your Name - Resume.pdf  Placeholder PDF (replace with yours)
 - I used AI to generate some placeholder (fake) text used for windows, projects details and so on.
 - I'm considering to add a "docs" file to the project for a full and detailed customization guide
 - Mobile version still needs some adjustments and I will add some global improvements/features
-- Feel free to let me know if you find bugs and/or want to suggest improvements
+- Feel free to let me know if you find bugs and/or want to suggest something
 
 
 ## Credits and license
