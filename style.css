@@ -1,0 +1,784 @@
+/* === GLOBAL RESET & PAGE STYLES === */
+[hidden] {
+  display: none !important;
+}
+
+/* === WIN98 CURSORS === */
+body,
+a,
+button,
+label,
+select,
+.desktop-icon {
+  cursor:
+    url("cursors/arrow.svg") 2 2,
+    default;
+}
+
+input[type="text"],
+input[type="email"],
+input:not([type]),
+textarea {
+  cursor: text;
+}
+
+body.is-loading,
+body.is-loading * {
+  cursor:
+    url("cursors/loading.svg") 16 16,
+    wait !important;
+}
+
+/* Teal Win98 desktop background */
+body {
+  background-color: #008080;
+  font-family: "Pixelated MS Sans Serif", Arial;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Positioning context for absolutely-placed draggable windows */
+.desktop-content {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* === UTILITY CLASSES === */
+.mt-10 {
+  margin-top: 10px;
+}
+.form-buttons {
+  justify-content: flex-end;
+}
+
+/* Contact form */
+#window-contact input[type="text"],
+#window-contact input[type="email"],
+#window-contact select,
+#window-contact textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* === WINDOW SHELL === */
+
+.window {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  /* overflow: hidden is required for resize: both to work */
+  overflow: hidden;
+  resize: both;
+  /* Minimum size so the title bar and controls are always accessible */
+  min-width: 280px;
+  min-height: 120px;
+  box-sizing: border-box;
+}
+
+/* === WELCOME WINDOW === */
+
+#window-welcome {
+  width: 660px;
+  height: 480px;
+}
+
+#window-welcome .window-body {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.welcome-text {
+  font-size: 1.1rem;
+  text-align: center;
+  line-height: 1.6;
+  margin: 15px 0;
+}
+
+.welcome-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.welcome-progress {
+  width: 80%;
+  margin-top: 15px;
+}
+
+@keyframes slow-progress {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -72px 0;
+  }
+}
+#window-welcome .welcome-progress::-webkit-progress-value {
+  animation: slow-progress 8s linear infinite !important;
+}
+#window-welcome .welcome-progress::-moz-progress-bar {
+  animation: slow-progress 8s linear infinite !important;
+}
+
+/* === WINDOW STATE STYLES === */
+
+.window.is-dragging {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.window.is-maximized {
+  resize: none;
+}
+
+/* === WINDOW BODY & CONTENT AREAS === */
+
+.window-body {
+  display: flex;
+  flex-grow: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* Sidebar tree-view navigation */
+.tree-view {
+  min-width: 120px;
+  padding: 4px 4px 4px 2px;
+  border-right: 2px solid #808080;
+  box-shadow:
+    inset -1px -1px #fff,
+    inset 1px 1px #0a0a0a,
+    inset -2px -2px #dfdfdf,
+    inset 2px 2px grey;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.project-sidebar {
+  flex-shrink: 0;
+}
+
+.project-sidebar > ul {
+  padding-left: 0;
+  margin: 0;
+}
+
+.project-sidebar li,
+.project-sidebar summary {
+  white-space: nowrap;
+}
+
+.tree-view summary.tree-filter {
+  cursor:
+    url("cursors/arrow.svg") 2 2,
+    default;
+  padding: 1px 4px;
+  display: block;
+}
+
+.tree-view summary.tree-filter.is-active {
+  background-color: #000080;
+  color: white;
+  font-weight: bold;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+/* === TABS === */
+
+.content--tabs {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 8px 8px 0;
+}
+
+.tab-panel {
+  flex: 1;
+  min-height: 0;
+  resize: none;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.tab-panel-body {
+  overflow-y: auto;
+  height: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.skills-table-wrap {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.skills-table-wrap table {
+  width: 100%;
+}
+
+.content.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-content: flex-start;
+}
+
+.project-folder {
+  text-align: center;
+  width: 100px;
+  flex-shrink: 0;
+}
+
+.project-folder .project-link {
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border: 1px solid transparent;
+}
+.project-folder .project-link:hover {
+  background-color: #000080;
+  color: white;
+  border-color: #808080;
+}
+.project-folder img {
+  width: 32px;
+  height: 32px;
+}
+.project-folder span {
+  word-break: break-all;
+}
+
+/* === DESKTOP ICONS === */
+
+.icon-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.desktop-icon {
+  position: absolute;
+  width: 72px;
+  text-align: center;
+  pointer-events: all;
+  cursor: default;
+  user-select: none;
+}
+
+.rubber-band {
+  position: absolute;
+  border: 1px dotted #000080;
+  background-color: rgba(0, 0, 128, 0.1);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.desktop-icon.is-dragging {
+  opacity: 0.75;
+  z-index: 50;
+}
+
+.desktop-icon.is-selected span {
+  background-color: #000080;
+  color: white;
+  outline: 1px dotted white;
+  outline-offset: 1px;
+}
+
+.desktop-icon a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+/* === TASKBAR WINDOW BUTTONS === */
+
+.taskbar-windows {
+  display: flex;
+  flex: 1;
+  gap: 2px;
+  margin: 0 4px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.taskbar-btn {
+  min-width: 80px;
+  max-width: 160px;
+  height: 22px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  flex-shrink: 1;
+}
+
+.taskbar-btn img {
+  flex-shrink: 0;
+}
+
+.taskbar-btn span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.taskbar-btn.is-active {
+  box-shadow:
+    inset -1px -1px #ffffff,
+    inset 1px 1px #0a0a0a,
+    inset -2px -2px #dfdfdf,
+    inset 2px 2px #808080;
+}
+
+/* === TASKBAR ADDRESS BAR === */
+
+.taskbar-address-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  margin: 0 4px;
+  position: relative;
+}
+
+.taskbar-address-label {
+  font-size: 11px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.taskbar-address-input-wrap {
+  display: flex;
+  align-items: center;
+  width: 220px;
+  height: 20px;
+  background: white;
+  box-shadow:
+    inset 1px 1px #0a0a0a,
+    inset -1px -1px #fff,
+    inset 2px 2px grey,
+    inset -2px -2px #dfdfdf;
+  padding: 0 2px;
+  gap: 3px;
+  box-sizing: border-box;
+}
+
+.taskbar-address-input-wrap img {
+  flex-shrink: 0;
+}
+
+.taskbar-address-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 11px;
+  font-family: inherit;
+  padding: 0;
+  min-width: 0;
+  outline: none;
+  cursor:
+    url("cursors/arrow.svg") 2 2,
+    default;
+}
+
+.taskbar-address-go {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  font-size: 9px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+@media (max-width: 1199px) {
+  .taskbar-address-bar {
+    display: none;
+  }
+}
+
+.address-dropdown {
+  position: absolute;
+  bottom: calc(100% + 3px);
+  right: 0;
+  min-width: 240px;
+  background: white;
+  border: 2px solid;
+  border-color: white #808080 #808080 white;
+  box-shadow: 1px 1px black;
+  list-style: none;
+  margin: 0;
+  padding: 2px 0;
+  z-index: 200;
+}
+
+.address-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 3px 8px;
+  white-space: nowrap;
+  font-size: 11px;
+  font-family: inherit;
+}
+
+.address-dropdown-item:hover {
+  background-color: #000080;
+  color: white;
+}
+
+/* === TASKBAR & START MENU === */
+
+.start-bar {
+  width: 100%;
+  background-color: #c0c0c0;
+  border-top: 2px solid white;
+  padding: 3px 5px;
+  display: flex;
+  align-items: center;
+  box-shadow:
+    inset 1px 1px #dfdfdf,
+    inset -1px -1px grey;
+  position: relative;
+  z-index: 100;
+  flex-shrink: 0;
+}
+
+.start-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px !important;
+}
+.start-button img {
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.time {
+  position: relative;
+  margin-left: auto;
+  padding: 2px 10px;
+  border: 1px solid grey;
+  box-shadow:
+    inset 1px 1px #0a0a0a,
+    inset -1px -1px #fff;
+}
+
+.start-menu {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 200px;
+  background-color: #c0c0c0;
+  border: 2px solid;
+  border-color: white #808080 #808080 white;
+  box-shadow: 1px 1px black;
+  padding: 2px;
+  display: flex;
+}
+.start-menu-sidebar {
+  background: #808080;
+  width: 30px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 10px 0;
+}
+.start-menu-sidebar-title {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  color: #c0c0c0;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px white;
+}
+.start-menu-content {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+  width: 100%;
+}
+.start-menu-content li {
+  padding: 5px;
+}
+.start-menu-content li:hover {
+  background-color: #000080;
+  color: white;
+}
+.start-menu-content a {
+  text-decoration: none;
+  color: inherit;
+}
+.start-menu-content .divider {
+  height: 1px;
+  background-color: #808080;
+  border-bottom: 1px solid white;
+  margin: 4px 0;
+  padding: 0;
+}
+
+/* === DESKTOP CONTEXT MENU === */
+
+.context-menu {
+  position: absolute;
+  z-index: 500;
+  background-color: #c0c0c0;
+  border: 2px solid;
+  border-color: white #808080 #808080 white;
+  box-shadow: 1px 1px black;
+  min-width: 160px;
+  padding: 2px;
+}
+
+.context-menu-list {
+  list-style: none;
+  margin: 0;
+  padding: 2px;
+}
+
+.context-menu-item {
+  padding: 4px 24px;
+  white-space: nowrap;
+}
+
+.context-menu-item:hover {
+  background-color: #000080;
+  color: white;
+}
+
+.context-menu-separator {
+  height: 1px;
+  background-color: #808080;
+  border-bottom: 1px solid white;
+  margin: 2px 4px;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+/* === RESPONSIVENESS === */
+
+@media (max-width: 1199px) {
+  .window {
+    width: 95% !important;
+    height: auto !important;
+    position: static !important;
+    resize: none;
+    margin: 0 auto 16px;
+  }
+
+  .window-body {
+    flex-direction: column;
+  }
+
+  .tree-view {
+    min-width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #808080;
+    box-sizing: border-box;
+    overflow-y: visible;
+  }
+
+  .content.projects-grid {
+    justify-content: center;
+  }
+
+  .project-folder {
+    width: 80px;
+  }
+
+  .icon-container {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    gap: 12px;
+    pointer-events: all;
+  }
+
+  .desktop-icon {
+    position: static;
+    width: auto;
+  }
+}
+
+/* === CONTENT BODY TEXT === */
+.content p,
+.content li,
+.content td,
+.content th,
+.tab-panel-body p,
+.tab-panel-body li,
+.tab-panel-body td,
+.tab-panel-body th {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.tab-panel-body h1,
+.tab-panel-body h2,
+.tab-panel-body h3 {
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 14px;
+  margin-bottom: 4px;
+}
+
+.content h1:first-child,
+.content h2:first-child,
+.content h3:first-child,
+.tab-panel-body h1:first-child,
+.tab-panel-body h2:first-child,
+.tab-panel-body h3:first-child {
+  margin-top: 0;
+}
+
+.blog-back-link {
+  color: #000080;
+  text-decoration: underline;
+  font-size: 13px;
+}
+
+.blog-back-link:hover {
+  color: #0000ff;
+}
+
+#blog-post-body code {
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  background: #f0f0f0;
+  padding: 0 3px;
+  border: 1px solid #c0c0c0;
+}
+
+/* === BLOG POSTS === */
+
+.blog-post {
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.blog-post:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.blog-post h3 {
+  margin: 2px 0 6px;
+  font-size: 1em;
+}
+
+.blog-post h3 a {
+  color: #000080;
+  text-decoration: underline;
+}
+
+.blog-post h3 a:hover {
+  color: #0000ff;
+}
+
+.blog-post p {
+  margin: 0;
+}
+
+.blog-post-meta {
+  font-size: 0.8em;
+  color: #666;
+  margin: 0;
+}
+
+/* === DECORATIVE MENU BAR === */
+.menu-bar {
+  background: #c0c0c0;
+  display: flex;
+  flex-shrink: 0;
+  border-bottom: 1px solid #808080;
+  padding: 1px 0;
+  align-items: stretch;
+}
+
+.menu-bar-item {
+  padding: 2px 6px;
+  font-size: 11px;
+  font-family: inherit;
+  display: block;
+  user-select: none;
+}
+
+.menu-bar-item:hover {
+  background-color: #000080;
+  color: white;
+}
+
+/* === CLOCK TOOLTIP === */
+
+.clock-tooltip {
+  position: absolute;
+  bottom: calc(100% + 4px);
+  right: 0;
+  background: #ffffe1;
+  border: 1px solid #000000;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-family: inherit;
+  white-space: nowrap;
+  z-index: 300;
+  pointer-events: none;
+}
+
+/* === RECYCLE BIN WINDOW === */
+.recycle-bin-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recycle-bin-empty {
+  color: #808080;
+  font-size: 13px;
+  margin: 0;
+}

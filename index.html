@@ -1,0 +1,1269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Here you can change name, content and title -->
+    <meta
+      name="description"
+      content="John Smith - Interactive portfolio styled as a Windows 98 desktop. Explore projects, skills, and get in touch."
+    />
+    <title>John Smith | Portfolio</title>
+
+    <!-- You can modify the favicon and use another png -->
+    <link rel="icon" type="image/png" href="icons/favicon.png" />
+
+    <!-- Open Graph tags are used to control how your link appears on LinkedIn, WhatsApp
+         Telegram etc.
+         
+         Change "og:title", "og:description" and "og:url" to match your name, page title and domain.
+
+         "og:image" is for showing a thumbnail with these links. You can replace preview.png with your screenshot. Recommended size is 3600x1890px because it looks better on high-res monitors, buy you can also use 1200x630px -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="John Smith | Portfolio" />
+    <meta
+      property="og:description"
+      content="Interactive portfolio styled as a Windows 98 desktop. Explore projects, skills, and get in touch."
+    />
+    <meta property="og:image" content="preview.png" />
+    <meta property="og:url" content="https://yourname.com" />
+
+    <!-- Twitter Card tags control how your link appears on Twitter/X.
+         Update card, title, and image with your own.
+
+         "twitter:image" can use the same preview.png used for Open Graph -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="John Smith | Portfolio" />
+    <meta name="twitter:image" content="preview.png" />
+
+    <!-- Canonical tells search engines the URL of this page to avoid
+         duplicate content. Replace it with your final domain -->
+    <link rel="canonical" href="https://yourname.com" />
+
+    <!-- This code tells Google this is a person's portfolio page.
+         Update name, url, and jobTitle with your own.
+         "sameAs" takes a list of your public profile URLs (LinkedIn, GitHub, etc) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "John Smith",
+        "url": "https://yourname.com",
+        "jobTitle": "Full Stack Developer",
+        "sameAs": [
+          "https://github.com/yourname",
+          "https://linkedin.com/in/yourname"
+        ]
+      }
+    </script>
+
+    <link rel="stylesheet" href="98.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="desktop">
+    <div class="desktop-content">
+      <!-- WELCOME WINDOW -->
+      <div
+        id="window-welcome"
+        class="window"
+        role="dialog"
+        aria-labelledby="title-welcome"
+      >
+        <div class="title-bar">
+          <!-- Change the title bar text -->
+          <div class="title-bar-text" id="title-welcome">Welcome!</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="window-body">
+          <img
+            src="icons/information-icon.png"
+            alt="Information"
+            class="welcome-icon"
+          />
+          <!-- Replace with your name and message -->
+          <p class="welcome-text">
+            <strong>Hi, I'm John! Welcome to my interactive desktop.</strong
+            ><br />
+            Click the icons on the left to explore my work, learn about me, or
+            get in touch.<br />
+            I suggest starting with the "Projects" folder!
+          </p>
+          <progress class="welcome-progress"></progress>
+        </div>
+      </div>
+
+      <!-- ABOUT WINDOW -->
+      <div
+        id="window-about"
+        class="window"
+        hidden
+        role="dialog"
+        aria-labelledby="title-about"
+      >
+        <div class="title-bar">
+          <!-- Change the window title -->
+          <div class="title-bar-text" id="title-about">About Me</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <!-- Win98 menu bar. Purely visual with no real menus -->
+        <nav class="menu-bar" aria-hidden="true">
+          <span class="menu-bar-item">File</span>
+          <span class="menu-bar-item">Edit</span>
+          <span class="menu-bar-item">View</span>
+          <span class="menu-bar-item">Help</span>
+        </nav>
+        <div class="window-body">
+          <!-- Tabbed content area (Bio / Skills / Interests) -->
+          <article class="content content--tabs">
+            <menu role="tablist">
+              <li role="tab" aria-selected="true">
+                <a href="#tab-bio">Bio</a>
+              </li>
+              <li role="tab" aria-selected="false">
+                <a href="#tab-skills">Skills</a>
+              </li>
+              <li role="tab" aria-selected="false">
+                <a href="#tab-interests">Interests</a>
+              </li>
+            </menu>
+
+            <!-- Bio panel -->
+            <div class="window tab-panel" role="tabpanel" id="tab-bio">
+              <div class="window-body tab-panel-body">
+                <!-- Replace with your bio -->
+                <h2>Who I Am</h2>
+                <p>
+                  Hi! I'm <strong>John Smith</strong>, a Full Stack Developer
+                  based in San Francisco with over 8 years of experience
+                  building web applications for startups and established
+                  companies alike.
+                </p>
+                <p>
+                  I started coding at 16 by reverse-engineering browser games -
+                  and I've been hooked ever since. Today I specialise in
+                  JavaScript ecosystems, scalable back-end architectures, and
+                  turning complex problems into clean, maintainable solutions.
+                </p>
+                <p>
+                  When I'm not at my desk, you'll find me contributing to open
+                  source, attending local tech meetups, or hunting for vintage
+                  computers at flea markets.
+                </p>
+              </div>
+            </div>
+
+            <!-- Skills panel -->
+            <div
+              class="window tab-panel"
+              role="tabpanel"
+              id="tab-skills"
+              hidden
+            >
+              <div class="window-body tab-panel-body">
+                <div class="sunken-panel skills-table-wrap">
+                  <table class="interactive" aria-label="Skills by category">
+                    <thead>
+                      <tr>
+                        <th>Category</th>
+                        <th>Technologies</th>
+                      </tr>
+                    </thead>
+                    <!-- Replace rows with your skills and categories -->
+                    <tbody>
+                      <tr>
+                        <td>Frontend</td>
+                        <td>
+                          HTML5, CSS3, JavaScript (ES6+), React, TypeScript
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Backend</td>
+                        <td>Node.js, Express, Python, REST APIs, GraphQL</td>
+                      </tr>
+                      <tr>
+                        <td>Database</td>
+                        <td>PostgreSQL, MongoDB, Redis, MySQL</td>
+                      </tr>
+                      <tr>
+                        <td>DevOps</td>
+                        <td>Docker, GitHub Actions, AWS, Nginx</td>
+                      </tr>
+                      <tr>
+                        <td>Tools</td>
+                        <td>Git, VS Code, Figma, Postman, Webpack</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interests panel -->
+            <div
+              class="window tab-panel"
+              role="tabpanel"
+              id="tab-interests"
+              hidden
+            >
+              <div class="window-body tab-panel-body">
+                <!-- Replace with your hobbies and interests -->
+                <h3>Personal Interests</h3>
+                <p>
+                  Outside of work I'm passionate about
+                  <strong>open source software</strong> - I believe in giving
+                  back to the community that taught me everything I know.
+                </p>
+                <p>
+                  I'm also a retro computing enthusiast: my collection includes
+                  a working <strong>IBM ThinkPad 600E</strong> and a few
+                  original Game Boys. (Yes, this portfolio's aesthetic is
+                  entirely intentional.)
+                </p>
+                <p>
+                  When the screen is off, I enjoy <strong>hiking</strong>,
+                  <strong>street photography</strong>, and a probably unhealthy
+                  amount of specialty coffee.
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="status-bar">
+          <p class="status-bar-field">Ready</p>
+        </div>
+      </div>
+
+      <!-- PROJECTS WINDOW -->
+      <div
+        id="window-projects"
+        class="window"
+        hidden
+        role="dialog"
+        aria-labelledby="title-projects"
+      >
+        <div class="title-bar">
+          <!-- Change the window title -->
+          <div class="title-bar-text" id="title-projects">My Projects</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <!-- Win98 menu bar -->
+        <nav class="menu-bar" aria-hidden="true">
+          <span class="menu-bar-item">File</span>
+          <span class="menu-bar-item">Edit</span>
+          <span class="menu-bar-item">View</span>
+          <span class="menu-bar-item">Help</span>
+        </nav>
+        <div class="window-body">
+          <!-- Expandable tree sidebar. Clicking a category filters the project grid.
+               Add/remove categories and project names to match yours -->
+          <nav
+            class="tree-view project-sidebar"
+            aria-label="Project categories"
+          >
+            <ul>
+              <li>
+                <details open>
+                  <summary data-filter="all" class="tree-filter is-active">
+                    All Projects
+                  </summary>
+                  <ul>
+                    <li>
+                      <details open>
+                        <summary data-filter="web" class="tree-filter">
+                          Web Development
+                        </summary>
+                        <ul>
+                          <li>E-Commerce Dashboard</li>
+                          <li>Task Management App</li>
+                          <li>Weather Widget</li>
+                        </ul>
+                      </details>
+                    </li>
+                    <li>
+                      <details open>
+                        <summary data-filter="mobile" class="tree-filter">
+                          Mobile
+                        </summary>
+                        <ul>
+                          <li>Fitness Tracker</li>
+                        </ul>
+                      </details>
+                    </li>
+                    <li>
+                      <details open>
+                        <summary data-filter="opensource" class="tree-filter">
+                          Open Source
+                        </summary>
+                        <ul>
+                          <li>CSS Reset Toolkit</li>
+                          <li>JSON Formatter CLI</li>
+                        </ul>
+                      </details>
+                    </li>
+                    <li>
+                      <details open>
+                        <summary data-filter="uiux" class="tree-filter">
+                          UI/UX Design
+                        </summary>
+                        <ul>
+                          <li>Banking App Redesign</li>
+                        </ul>
+                      </details>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+            </ul>
+          </nav>
+
+          <!-- Project detail view populated from data-* attributes by script.js -->
+          <div id="projects-detail-view" class="content" hidden>
+            <fieldset>
+              <legend>Description</legend>
+              <p id="project-detail-description"></p>
+            </fieldset>
+            <fieldset class="mt-10">
+              <legend>Technologies</legend>
+              <p id="project-detail-tech"></p>
+            </fieldset>
+            <fieldset class="mt-10">
+              <legend>Links</legend>
+              <div class="field-row">
+                <button type="button" id="project-detail-github-btn">
+                  View on GitHub
+                </button>
+                <button type="button" id="project-detail-live-btn">
+                  Live Demo
+                </button>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- Project grid. Folders are filtered by category via the sidebar. 
+               Double-clicking one switches to the detail view.
+               For each .project-folder you can set:
+               - data-category (must match a data-filter value in the sidebar)
+               - data-title (project name shown in the detail window title bar)
+               - data-description (short description)
+               - data-tech (comma-separated technologies)
+               - data-year (year of completion)
+               - data-github (GitHub URL. Leave empty to hide the button)
+               - data-live (live demo. Leave empty to hide the button) -->
+          <div id="projects-grid-view" class="content projects-grid">
+            <div
+              class="project-folder"
+              data-category="web"
+              data-title="E-Commerce Dashboard"
+              data-description="A full-featured admin dashboard for an online retail platform. Includes real-time sales charts, inventory management, and order tracking with a clean, data-dense interface."
+              data-tech="React, TypeScript, Node.js, PostgreSQL, Recharts"
+              data-year="2024"
+              data-github="#"
+              data-live="#"
+            >
+              <a href="#" class="project-link">
+                <img
+                  src="icons/projects-icon.png"
+                  alt="Project folder"
+                  width="32"
+                  height="32"
+                />
+                <span>E-Commerce Dashboard</span>
+              </a>
+            </div>
+            <div
+              class="project-folder"
+              data-category="web"
+              data-title="Task Management App"
+              data-description="A Kanban-style task manager with drag-and-drop boards, due dates, label filtering, and real-time team collaboration powered by WebSockets."
+              data-tech="Vue.js, Express, MongoDB, Socket.io"
+              data-year="2024"
+              data-github="#"
+              data-live="#"
+            >
+              <a href="#" class="project-link">
+                <img
+                  src="icons/projects-icon.png"
+                  alt="Project folder"
+                  width="32"
+                  height="32"
+                />
+                <span>Task Management App</span>
+              </a>
+            </div>
+            <div
+              class="project-folder"
+              data-category="web"
+              data-title="Weather Widget"
+              data-description="An embeddable weather widget that fetches real-time conditions and 5-day forecasts. Lightweight, dependency-free, and easy to drop into any webpage."
+              data-tech="Vanilla JavaScript, CSS, OpenWeatherMap API"
+              data-year="2023"
+              data-github="#"
+              data-live="#"
+            >
+              <a href="#" class="project-link">
+                <img
+                  src="icons/projects-icon.png"
+                  alt="Project folder"
+                  width="32"
+                  height="32"
+                />
+                <span>Weather Widget</span>
+              </a>
+            </div>
+            <div
+              class="project-folder"
+              data-category="mobile"
+              data-title="Fitness Tracker"
+              data-description="A cross-platform mobile app for logging workouts, tracking personal records, and visualising weekly activity streaks with animated progress rings."
+              data-tech="React Native, Expo, SQLite, Victory Native"
+              data-year="2024"
+              data-github="#"
+              data-live="#"
+            >
+              <a href="#" class="project-link">
+                <img
+                  src="icons/projects-icon.png"
+                  alt="Project folder"
+                  width="32"
+                  height="32"
+                />
+                <span>Fitness Tracker</span>
+              </a>
+            </div>
+            <div
+              class="project-folder"
+              data-category="opensource"
+              data-title="CSS Reset Toolkit"
+              data-description="A lightweight, opinionated CSS reset published on npm. Normalises browser defaults while preserving useful inherited properties and modern layout features."
+              data-tech="CSS, PostCSS, npm"
+              data-year="2023"
+              data-github="#"
+              data-live="#"
+            >
+              <a href="#" class="project-link">
+                <img
+                  src="icons/projects-icon.png"
+                  alt="Project folder"
+                  width="32"
+                  height="32"
+                />
+                <span>CSS Reset Toolkit</span>
+              </a>
+            </div>
+            <div
+              class="project-folder"
+              data-category="opensource"
+              data-title="JSON Formatter CLI"
+              data-description="A Node.js command-line tool that formats, validates, and colourises JSON files. Supports stdin piping and recursive directory processing."
+              data-tech="Node.js, Commander.js, Chalk"
+              data-year="2022"
+              data-github="#"
+              data-live="#"
+            >
+              <a href="#" class="project-link">
+                <img
+                  src="icons/projects-icon.png"
+                  alt="Project folder"
+                  width="32"
+                  height="32"
+                />
+                <span>JSON Formatter CLI</span>
+              </a>
+            </div>
+            <div
+              class="project-folder"
+              data-category="uiux"
+              data-title="Banking App Redesign"
+              data-description="A complete UI/UX redesign of a retail banking app, focused on improving the onboarding flow and reducing time-to-action for frequent transactions."
+              data-tech="Figma, FigJam, Maze"
+              data-year="2024"
+              data-github=""
+              data-live="#"
+            >
+              <a href="#" class="project-link">
+                <img
+                  src="icons/projects-icon.png"
+                  alt="Project folder"
+                  width="32"
+                  height="32"
+                />
+                <span>Banking App Redesign</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="status-bar">
+          <p class="status-bar-field" id="object-count">7 objects</p>
+          <p class="status-bar-field">8.00 KB</p>
+        </div>
+      </div>
+
+      <!-- CONTACT WINDOW -->
+      <div
+        id="window-contact"
+        class="window"
+        hidden
+        role="dialog"
+        aria-labelledby="title-contact"
+      >
+        <div class="title-bar">
+          <!-- Change the window title -->
+          <div class="title-bar-text" id="title-contact">Contact Me</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <!-- Win98 menu bar -->
+        <nav class="menu-bar" aria-hidden="true">
+          <span class="menu-bar-item">File</span>
+          <span class="menu-bar-item">Edit</span>
+          <span class="menu-bar-item">View</span>
+          <span class="menu-bar-item">Help</span>
+        </nav>
+        <div class="window-body">
+          <article class="content">
+            <!-- To receive real messages replace action="#" with your Formspree endpoint.
+                 Example:
+                 action="https://formspree.io/f/YOUR_FORM_ID"
+
+                 If you host on Netlify keep action="#" and add these two attributes to the <form> tag:
+
+                 data-netlify="true"
+                 name="contact" -->
+            <form action="#" method="post" novalidate name="contact">
+              <!-- Changes the subject of the emails you will receive -->
+              <input
+                type="hidden"
+                name="_subject"
+                value="New message from portfolio"
+              />
+
+              <!-- Sender details -->
+              <fieldset>
+                <legend>Sender Information</legend>
+                <div class="field-row-stacked">
+                  <label for="contact-name">Name:</label>
+                  <input
+                    id="contact-name"
+                    name="name"
+                    type="text"
+                    required
+                    autocomplete="name"
+                    maxlength="100"
+                    minlength="2"
+                    pattern="[A-Za-zÀ-ÿĀ-ɏ\s'\-]+"
+                    title="Letters (including accented), spaces, hyphens and apostrophes only"
+                  />
+                </div>
+                <div class="field-row-stacked mt-10">
+                  <label for="contact-email">Email:</label>
+                  <input
+                    id="contact-email"
+                    name="email"
+                    type="email"
+                    required
+                    autocomplete="email"
+                    maxlength="254"
+                  />
+                </div>
+              </fieldset>
+
+              <!-- Subject menu -->
+              <fieldset class="mt-10">
+                <legend>Subject</legend>
+                <div class="field-row-stacked">
+                  <label for="contact-subject">What is this about?</label>
+                  <!-- Add or remove <option> entries to match your needs -->
+                  <select id="contact-subject" name="subject">
+                    <option>General Inquiry</option>
+                    <option>Project Proposal</option>
+                    <option>Job Opportunity</option>
+                    <option>Feedback</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </fieldset>
+
+              <!-- Message body -->
+              <fieldset class="mt-10">
+                <legend>Message</legend>
+                <div class="field-row-stacked">
+                  <label for="contact-message">Write your message below:</label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows="5"
+                    required
+                    maxlength="2000"
+                    minlength="10"
+                  ></textarea>
+                </div>
+              </fieldset>
+
+              <div class="field-row form-buttons mt-10">
+                <button type="submit">Send</button>
+              </div>
+            </form>
+          </article>
+        </div>
+        <div class="status-bar">
+          <p class="status-bar-field">Awaiting input...</p>
+        </div>
+      </div>
+
+      <!-- BLOG WINDOW -->
+      <div
+        id="window-blog"
+        class="window"
+        hidden
+        role="dialog"
+        aria-labelledby="title-blog"
+      >
+        <div class="title-bar">
+          <!-- Change the window title -->
+          <div class="title-bar-text" id="title-blog">Blog</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <!-- Win98 menu bar -->
+        <nav class="menu-bar" aria-hidden="true">
+          <span class="menu-bar-item">File</span>
+          <span class="menu-bar-item">Edit</span>
+          <span class="menu-bar-item">View</span>
+          <span class="menu-bar-item">Help</span>
+        </nav>
+        <div class="window-body">
+          <!-- Blog list view that is visible by default.
+               Clicking an article title switches to the post view below.
+               Replace date, title, excerpt, and full content
+               (inside .blog-full-content) for each article.
+
+               Add or remove <article class="blog-post"> blocks as needed -->
+          <div id="blog-list-view" class="content">
+            <h2>Latest Posts</h2>
+
+            <article class="blog-post">
+              <p class="blog-post-meta">March 12, 2025</p>
+              <h3>
+                <a href="#" class="blog-post-link">
+                  Why I Still Love Vanilla JavaScript
+                </a>
+              </h3>
+              <p>
+                Frameworks come and go, but understanding the platform itself
+                never goes out of style. Here's why I keep reaching for plain JS
+                for small projects.
+              </p>
+              <!-- Full article content shown when the post is opened -->
+              <div class="blog-full-content" hidden>
+                <p>
+                  Every year a new JavaScript framework promises to solve all
+                  your problems. And every year I find myself reaching for plain
+                  vanilla JS more, not less. Not out of nostalgia - out of
+                  pragmatism.
+                </p>
+                <p>
+                  When you skip the framework, you skip the abstraction layer.
+                  That means faster load times, no dependency updates to chase,
+                  and debugging that traces straight to platform behaviour. When
+                  something breaks, the answer is always in the MDN docs - not
+                  in a GitHub issue thread three versions old.
+                </p>
+                <p>
+                  There is also the knowledge dividend. Every hour you spend
+                  understanding the DOM API, event delegation, or the fetch
+                  lifecycle is an hour that pays off in every framework you
+                  touch afterwards. React and Vue are just thin layers on top of
+                  things you already know.
+                </p>
+                <p>
+                  My rule of thumb: if the project ships fewer than three
+                  components and has no shared state, vanilla JS wins. For
+                  everything else, I pick the right tool - but I always know
+                  what is happening underneath it.
+                </p>
+              </div>
+            </article>
+
+            <article class="blog-post">
+              <p class="blog-post-meta">January 28, 2025</p>
+              <h3>
+                <a href="#" class="blog-post-link">
+                  Building Accessible UIs from Scratch
+                </a>
+              </h3>
+              <p>
+                Accessibility isn't an afterthought - it's an architecture
+                decision. A walkthrough of the patterns I apply to every project
+                from day one.
+              </p>
+              <div class="blog-full-content" hidden>
+                <p>
+                  The most common accessibility mistake I see is treating it as
+                  a final checklist item - something to bolt on after the UI is
+                  "done". By that point, the structural decisions that make
+                  accessibility easy or hard have already been made, and they
+                  were made without accessibility in mind.
+                </p>
+                <p>
+                  My starting point is always semantic HTML. A
+                  <code>&lt;button&gt;</code> that looks like a link is already
+                  a problem. Screen readers, keyboard users, and voice control
+                  software all rely on the browser's built-in understanding of
+                  what each element is. Div soup with ARIA patches is harder to
+                  maintain and easier to get wrong.
+                </p>
+                <p>
+                  Once the structure is right, I focus on focus management.
+                  Opening a modal? Move focus inside it. Closing it? Return
+                  focus to the trigger. Navigating between pages in a SPA?
+                  Announce the new view to screen readers. These are small
+                  habits that compound into a dramatically better experience for
+                  keyboard-only users.
+                </p>
+                <p>
+                  Finally, I test with actual assistive technology - at minimum
+                  VoiceOver on macOS and NVDA on Windows. Automated tools catch
+                  maybe 30% of real-world issues. There is no substitute for
+                  tabbing through your own work with the mouse unplugged.
+                </p>
+              </div>
+            </article>
+
+            <article class="blog-post">
+              <p class="blog-post-meta">November 5, 2024</p>
+              <h3>
+                <a href="#" class="blog-post-link">
+                  My Favourite VS Code Extensions in 2024
+                </a>
+              </h3>
+              <p>
+                A curated list of the tools that genuinely changed how I write
+                and review code - no fluff, just the ones I actually use daily.
+              </p>
+              <div class="blog-full-content" hidden>
+                <p>
+                  I have tried dozens of VS Code extensions over the years and
+                  uninstalled most of them. What follows is what survived -
+                  tools that earn their place in my editor every single day.
+                </p>
+                <p>
+                  <strong>ESLint + Prettier.</strong> Non-negotiable on any JS
+                  project. ESLint catches logic errors and enforces conventions;
+                  Prettier handles formatting so I never argue about it in code
+                  review. I configure them once per project and forget about
+                  style.
+                </p>
+                <p>
+                  <strong>GitLens.</strong> Inline blame, file history, and
+                  commit search without leaving the editor. The "who wrote this
+                  line and why" question gets answered in seconds. Worth every
+                  bit of the startup overhead.
+                </p>
+                <p>
+                  <strong>Error Lens.</strong> Surfaces ESLint and TypeScript
+                  errors inline on the offending line rather than waiting for
+                  you to hover. Sounds minor; it is not. The feedback loop
+                  shrinks noticeably.
+                </p>
+                <p>
+                  <strong>Thunder Client.</strong> A lightweight REST client
+                  inside VS Code. I reach for it whenever I need a quick API
+                  call without switching to a separate application. Collections
+                  sync via the workspace, so the whole team shares the same
+                  requests.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <!-- Blog post view that is hidden by default and shown when an article is clicked.
+               Populated dynamically from the clicked .blog-post element by script.js.
+               Clicking the back link restores the list view. -->
+          <div id="blog-post-view" class="content" hidden>
+            <p>
+              <a href="#" id="blog-back-link" class="blog-back-link">
+                ← Back to all posts
+              </a>
+            </p>
+            <p class="blog-post-meta" id="blog-post-date"></p>
+            <h2 id="blog-post-title"></h2>
+            <div id="blog-post-body"></div>
+          </div>
+        </div>
+        <div class="status-bar">
+          <p class="status-bar-field" id="blog-status">3 posts</p>
+        </div>
+      </div>
+
+      <!-- RECYCLE BIN WINDOW -->
+      <div
+        id="window-recycle"
+        class="window"
+        hidden
+        role="dialog"
+        aria-labelledby="title-recycle"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text" id="title-recycle">Recycle Bin</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <!-- Win98 menu bar -->
+        <nav class="menu-bar" aria-hidden="true">
+          <span class="menu-bar-item">File</span>
+          <span class="menu-bar-item">Edit</span>
+          <span class="menu-bar-item">View</span>
+          <span class="menu-bar-item">Help</span>
+        </nav>
+        <div class="window-body">
+          <div class="content recycle-bin-content">
+            <p class="recycle-bin-empty">This folder is empty.</p>
+          </div>
+        </div>
+        <div class="status-bar">
+          <p class="status-bar-field">0 objects</p>
+          <p class="status-bar-field">0 bytes</p>
+        </div>
+      </div>
+
+      <!-- PRIVACY POLICY WINDOW -->
+      <!-- Update it with your real name, country, contact email and so on -->
+      <div
+        id="window-privacy"
+        class="window"
+        hidden
+        role="dialog"
+        aria-labelledby="title-privacy"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text" id="title-privacy">Privacy Policy</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <!-- Win98 menu bar -->
+        <nav class="menu-bar" aria-hidden="true">
+          <span class="menu-bar-item">File</span>
+          <span class="menu-bar-item">Edit</span>
+          <span class="menu-bar-item">View</span>
+          <span class="menu-bar-item">Help</span>
+        </nav>
+        <div class="window-body">
+          <article class="content" id="privacy-content">
+            <!-- Change "John Smith", "[Your Country]", and
+                 "[your@email.com]" with your real details -->
+            <h2>Privacy Policy</h2>
+            <!-- Update this date when you modify the policy -->
+            <p><em>Last updated: July 2026</em></p>
+
+            <h3>1. Data Controller</h3>
+            <p>
+              This website is operated by <strong>John Smith</strong>
+              ("[Your Country]"). For any privacy-related questions, contact:
+              <strong>[your@email.com]</strong>.
+            </p>
+
+            <h3>2. What Data We Collect</h3>
+            <p>
+              This is a static personal portfolio. We do not use tracking
+              scripts, advertising networks, or analytics services unless you
+              have added them. The only personal data collected is what you
+              voluntarily submit through the contact form:
+            </p>
+            <ul>
+              <li>Your name</li>
+              <li>Your email address</li>
+              <li>The message content</li>
+            </ul>
+
+            <h3>3. How We Use Your Data</h3>
+            <p>
+              Contact form data is used solely to respond to your message. It is
+              not shared with third parties, sold, or used for marketing.
+            </p>
+
+            <h3>4. Third-Party Services</h3>
+            <p>
+              <!-- If you use Formspree, Netlify Forms, or another
+                   service describe it here and link to their privacy policy -->
+              If the contact form is connected to a third-party delivery service
+              (e.g. Formspree or Netlify Forms), your submission is processed by
+              that provider. Please refer to their respective privacy policies
+              for details.
+            </p>
+
+            <h3>5. Data Retention</h3>
+            <p>
+              Messages received via the contact form are retained only as long
+              as necessary to respond to your inquiry, and no longer than 12
+              months.
+            </p>
+
+            <h3>6. Your Rights</h3>
+            <p>
+              Depending on your country of residence, you may have rights
+              including: access to your data, correction, erasure, and objection
+              to processing. To exercise these rights, contact us at the address
+              above.
+            </p>
+
+            <h3>7. Changes to This Policy</h3>
+            <p>
+              We may update this policy from time to time. The date at the top
+              of this page reflects the most recent revision.
+            </p>
+          </article>
+        </div>
+        <div class="status-bar">
+          <p class="status-bar-field">Privacy Policy</p>
+        </div>
+      </div>
+
+      <!-- COOKIE POLICY WINDOW
+           Update with your real details and list any analytics or third-party cookies you use -->
+      <div
+        id="window-cookie"
+        class="window"
+        hidden
+        role="dialog"
+        aria-labelledby="title-cookie"
+      >
+        <div class="title-bar">
+          <div class="title-bar-text" id="title-cookie">Cookie Policy</div>
+          <div class="title-bar-controls">
+            <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close"></button>
+          </div>
+        </div>
+        <!-- Win98 menu bar -->
+        <nav class="menu-bar" aria-hidden="true">
+          <span class="menu-bar-item">File</span>
+          <span class="menu-bar-item">Edit</span>
+          <span class="menu-bar-item">View</span>
+          <span class="menu-bar-item">Help</span>
+        </nav>
+        <div class="window-body">
+          <article class="content" id="cookie-content">
+            <!-- Replace "[Your Country]" and "[your@email.com]" with your real details -->
+            <h2>Cookie Policy</h2>
+            <!-- Update this date if you modify the policy -->
+            <p><em>Last updated: July 2026</em></p>
+
+            <h3>1. What Are Cookies?</h3>
+            <p>
+              Cookies are small text files placed on your device by a website.
+              They are widely used to make websites work more efficiently and to
+              provide information to the website owner.
+            </p>
+
+            <h3>2. Cookies Used by This Website</h3>
+            <p>
+              This portfolio is a static single-page application with no
+              server-side logic. It does not set any first-party cookies.
+            </p>
+            <!-- If you added analytics or any other cookie-setting service list those cookies here with their name, provider, purpose and duration. Remove this section entirely if you don't have analytics -->
+            <p>
+              If you have configured a third-party service (such as an analytics
+              provider or a form backend), that service may set its own cookies.
+              Please refer to the relevant provider's cookie documentation for
+              details.
+            </p>
+
+            <h3>3. How to Control Cookies</h3>
+            <p>
+              You can control and delete cookies through your browser settings.
+              Note that disabling cookies may affect the functionality of some
+              websites you visit. For guidance, visit
+              <strong>www.aboutcookies.org</strong> or your browser's help
+              section.
+            </p>
+
+            <h3>4. Contact</h3>
+            <p>
+              For questions about this Cookie Policy, contact us at
+              <!-- replace with your real email address -->
+              <strong>[your@email.com]</strong>.
+            </p>
+
+            <h3>5. Changes to This Policy</h3>
+            <p>
+              We may update this policy from time to time. The date at the top
+              of this page reflects the most recent revision.
+            </p>
+          </article>
+        </div>
+        <div class="status-bar">
+          <p class="status-bar-field">Cookie Policy</p>
+        </div>
+      </div>
+
+      <!-- DESKTOP CONTEXT MENU -->
+      <div
+        id="desktop-context-menu"
+        class="context-menu hidden"
+        role="menu"
+        aria-label="Desktop context menu"
+      >
+        <ul class="context-menu-list">
+          <li
+            role="menuitem"
+            class="context-menu-item"
+            data-action="arrange-icons"
+          >
+            Arrange Icons
+          </li>
+          <li
+            role="menuitem"
+            class="context-menu-item"
+            data-action="line-up-icons"
+          >
+            Line Up Icons
+          </li>
+          <li role="separator" class="context-menu-separator"></li>
+          <li role="menuitem" class="context-menu-item" data-action="refresh">
+            Refresh
+          </li>
+          <li role="separator" class="context-menu-separator"></li>
+          <li
+            role="menuitem"
+            class="context-menu-item"
+            data-action="properties"
+          >
+            Properties
+          </li>
+        </ul>
+      </div>
+
+      <!-- DESKTOP ICONS -->
+      <main class="icon-container" aria-label="Desktop icons">
+        <div class="desktop-icon">
+          <!-- draggable="false" prevents the browser's native image drag -->
+          <a
+            href="#"
+            data-opens="window-about"
+            aria-label="Open About Me"
+            draggable="false"
+          >
+            <img
+              src="icons/about-icon.png"
+              alt=""
+              width="32"
+              height="32"
+              draggable="false"
+            />
+            <span>About Me</span>
+          </a>
+        </div>
+        <div class="desktop-icon">
+          <a
+            href="#"
+            data-opens="window-projects"
+            aria-label="Open Projects"
+            draggable="false"
+          >
+            <img
+              src="icons/projects-icon.png"
+              alt=""
+              width="32"
+              height="32"
+              draggable="false"
+            />
+            <span>Projects</span>
+          </a>
+        </div>
+        <div class="desktop-icon">
+          <a
+            href="#"
+            data-opens="window-contact"
+            aria-label="Open Contact"
+            draggable="false"
+          >
+            <img
+              src="icons/contact-icon.png"
+              alt=""
+              width="32"
+              height="32"
+              draggable="false"
+            />
+            <span>Contact</span>
+          </a>
+        </div>
+        <div class="desktop-icon">
+          <a
+            href="#"
+            data-opens="window-blog"
+            aria-label="Open Blog"
+            draggable="false"
+          >
+            <img
+              src="icons/blog-icon.png"
+              alt=""
+              width="32"
+              height="32"
+              draggable="false"
+            />
+            <span>Blog</span>
+          </a>
+        </div>
+        <div class="desktop-icon">
+          <!-- Replace the href value with the filename of your own resume. Remember to place the PDF in the same folder as index.html, then update the path below. You should also update the aria-label text with anything you prefer (useful for screen readers) -->
+          <a
+            href="Your Name - Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View CV, opens PDF in a new tab"
+            draggable="false"
+          >
+            <img
+              src="icons/resume-icon.png"
+              alt=""
+              width="32"
+              height="32"
+              draggable="false"
+            />
+            <span>View CV</span>
+          </a>
+        </div>
+        <div class="desktop-icon">
+          <a
+            href="#"
+            data-opens="window-recycle"
+            aria-label="Open Recycle Bin"
+            draggable="false"
+          >
+            <img
+              src="icons/bin-icon.png"
+              alt=""
+              width="32"
+              height="32"
+              draggable="false"
+              onerror="this.src='icons/projects-icon.png'"
+            />
+            <span>Recycle Bin</span>
+          </a>
+        </div>
+      </main>
+    </div>
+
+    <!-- TASKBAR -->
+    <div class="start-bar" role="toolbar" aria-label="Taskbar">
+      <button
+        id="start-button"
+        class="start-button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <img src="icons/windows-icon.png" alt="" width="16" height="16" />
+        <b>Start</b>
+      </button>
+
+      <div
+        id="start-menu"
+        class="start-menu hidden"
+        role="menu"
+        aria-label="Start menu"
+      >
+        <div class="start-menu-sidebar" aria-hidden="true">
+          <span class="start-menu-sidebar-title">Info</span>
+        </div>
+        <!-- Replace name, copyright year, VAT ID, and policy links with yours-->
+        <ul class="start-menu-content">
+          <li role="menuitem"><strong>John Smith</strong></li>
+          <li class="divider" role="separator"></li>
+          <li role="menuitem"><small>© 2026 All rights reserved.</small></li>
+          <li role="menuitem"><small>VAT ID: 12345678901</small></li>
+          <li class="divider" role="separator"></li>
+          <li role="menuitem">
+            <a href="#" data-opens="window-privacy">Privacy Policy</a>
+          </li>
+          <li role="menuitem">
+            <a href="#" data-opens="window-cookie">Cookie Policy</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Open window buttons are populated dynamically by script.js -->
+      <div
+        id="taskbar-windows"
+        class="taskbar-windows"
+        role="toolbar"
+        aria-label="Open windows"
+      ></div>
+
+      <!-- Win98-style address bar updates to reflect the active window path. The dropdown lists all available destinations and clicking one opens the window. -->
+      <div class="taskbar-address-bar" role="search" aria-label="Address bar">
+        <span class="taskbar-address-label">Address</span>
+        <div class="taskbar-address-input-wrap">
+          <img
+            id="address-icon"
+            src="icons/information-icon.png"
+            alt=""
+            width="16"
+            height="16"
+          />
+          <input
+            id="address-input"
+            type="text"
+            class="taskbar-address-input"
+            value="C:\Desktop"
+            readonly
+            aria-label="Current location"
+          />
+          <button
+            id="address-go"
+            class="taskbar-address-go"
+            aria-label="Show address history"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+          >
+            ▾
+          </button>
+        </div>
+        <ul
+          id="address-dropdown"
+          class="address-dropdown hidden"
+          role="listbox"
+          aria-label="Available locations"
+        ></ul>
+      </div>
+
+      <!-- The inner <span> holds the time text so the tooltip div can coexist
+           without being wiped by textContent updates. -->
+      <div id="clock" class="time" role="timer" aria-live="off">
+        <span id="clock-time"></span>
+        <!-- Win98-style date tooltip that appears on hover above the clock -->
+        <div
+          id="clock-tooltip"
+          class="clock-tooltip hidden"
+          aria-hidden="true"
+        ></div>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
