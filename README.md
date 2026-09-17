@@ -1,5 +1,7 @@
 # Portfolio 98
 
+Small and fun project I made during my spare time.
+
 Made with [98.css](https://jdan.github.io/98.css/), plain HTML and vanilla JavaScript. Open `index.html` in a browser and it just works.
 
 Every website section lives inside a draggable, resizable window.
